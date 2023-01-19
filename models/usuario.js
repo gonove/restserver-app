@@ -44,7 +44,12 @@ const UsuarioSchema = Schema({
 
 UsuarioSchema.methods.toJSON = function() {
     // Separamos los parametros que recibimos y con el operador spread dejamos 'los demas' en la constante usuario, luego retornamos usuario
-    const { __v, password, ...usuario } = this.toObject();
+    const { __v, password, _id, ...usuario } = this.toObject();
+
+    // Object.assign( usuario, { uid : usuario._id })
+    // delete usuario._id;
+
+    usuario.uid = _id
 
     return usuario;
 }
