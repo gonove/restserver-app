@@ -6,13 +6,15 @@ const UsuarioSchema = Schema({
 
     nombre : {
         type: String,
-        required : [ true, 'El nombre es obligatorio']
+        required : [ true, 'El nombre es obligatorio'],
+        ref : 'Categoria'
     },
 
     correo : {
         type : String,
         required : [true, 'El correo es obligatorio'],
-        unique: true
+        unique: true,
+        ref : 'Categoria'
     },
 
     password : {
@@ -22,22 +24,26 @@ const UsuarioSchema = Schema({
 
     image : {
         type : String,
+        ref : 'Categoria'
     },
 
     rol : {
         type : String,
         required : true,
-        enum: ['ADMIN_ROLE', 'USER_ROLE']
+        enum: ['ADMIN_ROLE', 'USER_ROLE'],
+        ref : 'Categoria'
     },
 
     estado : {
         type : Boolean,
-        default : true
+        default : true,
+        ref : 'Categoria'
     },
 
     google : {
         type : Boolean,
-        default : false
+        default : false,
+        ref : 'Categoria'
     },
 
 });
@@ -48,7 +54,6 @@ UsuarioSchema.methods.toJSON = function() {
 
     // Object.assign( usuario, { uid : usuario._id })
     // delete usuario._id;
-
     usuario.uid = _id
 
     return usuario;
