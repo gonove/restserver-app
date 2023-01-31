@@ -22,7 +22,7 @@ const UsuarioSchema = Schema({
         required : [true, 'La constraseña es obligatoria']
     },
 
-    image : {
+    img : {
         type : String,
         ref : 'Categoria'
     },
