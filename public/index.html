@@ -42,7 +42,7 @@
             var body = { id_token };
             var url = (window.location.hostname.includes('localhost') )
                 ? 'http://localhost:8080/api/auth/google'
-                : 'https://abcde.herokuapp.com/api/auth/google'
+                : 'https://restserver-app-production.up.railway.app/'
 
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
