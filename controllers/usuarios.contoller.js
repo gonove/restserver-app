@@ -78,8 +78,14 @@ const usuariosDelete = async(req, res = response) => {
     // Fisicamente lo borramos
     // const usuario = await Usuario.findByIdAndRemove( id );
 
+    // Obtener el uid que guardamos en req.uid
+    // const uid = req.uid
+
     // Forma recomendada
     const usuario = await Usuario.findByIdAndUpdate( id, {estado : false  } );
+
+    // Leer usuario autenticado
+    // const usuarioAutenticado = req.usuario
 
     res.json({ usuario })
 }
